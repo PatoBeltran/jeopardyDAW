@@ -39,12 +39,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "figaro"
-gem "unicorn"
-gem "annotate"
-gem "sendgrid"
-gem "byebug"
-
 group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner"
@@ -67,6 +61,14 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "byebug"
 end
 
+gem 'compass-rails', '~> 1.1.3'
+gem 'font-awesome-rails'
+gem "figaro"
+gem "unicorn"
+gem "annotate"
+gem "sendgrid"
 gem "devise"
+gem "furatto"
