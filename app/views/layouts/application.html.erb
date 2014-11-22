@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jeopardy</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<title>Jeopardy</title>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= csrf_meta_tags %>
 </head>
 <body>
-
+<% flash.each do |key, value| %>
+  <div class="alert <%= key %>">
+  <a href="#" class="close">x</a>
+  <%= value %>
+</div>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+  <% end %>
 <%= yield %>
 
+<%= javascript_include_tag 'application' %>
 </body>
 </html>

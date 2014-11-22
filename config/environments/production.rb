@@ -75,4 +75,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Email Setup
+  EMAIL_CREDENTIALS = {
+    username: "patobeltran",
+    password: "Pp8117985726",
+    domain: "jeopardydaw.herokuapp.com"
+  }
+
 end

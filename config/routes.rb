@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root "pages#landing"
+
+  devise_for :users, controllers: { registrations: "users"}
+
+  devise_scope :user do
+    resources :users do
+      collection do
+        get 'change_password', to: "users#change_password"
+        post 'password_changed', to: "users#password_changed"
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
