@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable,
     :lockable
 
+  validate :name, presence: true
+
+  has_many :games
+
   def self.generate_password
     Devise.friendly_token
   end
