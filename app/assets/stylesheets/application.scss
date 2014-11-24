@@ -20,7 +20,7 @@
 	padding: 10px;
 }
 
-h5, .aboutUs {
+h5, h2, .aboutUs {
 	text-align: center;
 }
 
@@ -28,7 +28,14 @@ h5, .aboutUs {
 	list-style-type: none;
 }
 
-
-.footer {
+.field, .actions {
+	width: 300px;
 	text-align: center;
+}
+
+.form-section {
+	width:300px;
+    position:relative;
+    left:50%;
+    margin-left: -150px;
 }

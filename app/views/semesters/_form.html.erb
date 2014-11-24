@@ -1,5 +1,10 @@
 <%= form_for @semester do |f| %>
-  <%= f.label :title, "Semester" %><br />
+<div class="form-section">
+  <%= f.label :title, "Semester" %>
   <%= f.text_area :title %><br />
-  <%= f.submit %>
+  <div class="actions">
+  	<%= f.submit %>
+  </div>
+</div>
+
 <% end %>
