@@ -41,6 +41,8 @@ class UsersController < Devise::RegistrationsController
     @games = @user.games
     @reports = nil
     @topics = Topic.all
+    @categories = Category.all
+    @semesters = Semester.all
   end
 
   private
