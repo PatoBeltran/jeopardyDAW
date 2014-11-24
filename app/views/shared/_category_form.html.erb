@@ -1,15 +1,16 @@
 <fieldset>
 	<div class="row">
-	<div class="col-3">
-	  <%= f.label :name, "Category" %>
-	  <%= f.text_field :name %>
-	  <%= f.hidden_field :_destroy %>
+    <div class="col-3">
+      <%= f.label :name, "Category" %>
+      <%= f.text_field :name %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "remove", '#', class: "remove_fields" %>
+    </div>
 	</div>
-	</div>
-	
 	<div class="row">
 	  <%= f.fields_for :clues do |builder| %>
       <%= render "shared/clue_form", f: builder %>
   	  <% end %>
   	</div>
+  <%= link_to_add_fields "Add Clue", f, :clues %>
 </fieldset>

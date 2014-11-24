@@ -5,7 +5,15 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     resources :users do
-      resources :games
+      resources :games do
+        member do
+          get 'add_players', to: "games#add_players"
+          post 'added_player', to: "games#added_player"
+          get 'play', to: "games#play_game"
+          post 'finish', to: "games#end_game"
+          get 'teams' => "games#teams", format: 'json'
+        end
+      end
       collection do
         get 'change_password', to: "users#change_password"
         post 'password_changed', to: "users#password_changed"
@@ -15,7 +23,6 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :clues
-  resources :questions
   resources :semesters
   resources :topics
 

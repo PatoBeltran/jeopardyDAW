@@ -10,4 +10,6 @@
 
 class Semester < ActiveRecord::Base
   has_many :games
+
+  validate :title, presence: true
 end

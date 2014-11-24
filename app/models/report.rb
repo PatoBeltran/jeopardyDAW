@@ -10,4 +10,6 @@
 
 class Report < ActiveRecord::Base
   belongs_to :game
+
+  validate :game, presence: true
 end

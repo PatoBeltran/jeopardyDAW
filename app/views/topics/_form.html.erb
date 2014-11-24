@@ -1,8 +1,15 @@
 <%= form_for @topic do |f| %>
+  <% if @topic.errors.any? %>
+    <ul>
+      <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 <div class="row">
   <div class="col-3">
   <%= f.label :name, "Topic" %>
-  <%= f.text_area :name %>
+  <%= f.text_field :name %>
   </div>
 </div>
 
@@ -10,6 +17,7 @@
   <%= f.fields_for :categories do |builder| %>
   <%= render "shared/category_form", f: builder %>
   <% end %>
+  <%= link_to_add_fields "Add Category", f, :categories %>
 </div>
 
 <div class="field">

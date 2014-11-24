@@ -12,8 +12,9 @@ class Ability
 
     can [:new, :create], Game
 
-    can [:edit, :update, :show, :destroy], Game do |game|
+    can [:edit, :update, :show, :destroy, :play_game, :add_players, :added_player, :teams], Game do |game|
       game.user_id == user.id
     end
+
   end
 end

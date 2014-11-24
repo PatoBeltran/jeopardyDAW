@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141123071321) do
     t.integer  "category_id"
     t.string   "title"
     t.integer  "points"
+    t.string   "question"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,13 +50,6 @@ ActiveRecord::Schema.define(version: 20141123071321) do
 
   create_table "players", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "questions", force: true do |t|
-    t.integer  "clue_id"
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
