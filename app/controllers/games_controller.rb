@@ -69,7 +69,7 @@ class GamesController < ApplicationController
 
     if @player_or_team.save
       @teamp.save  if params[:member][:type] == "player" && params[:member][:team].present?
-      @member = GameMember.create(memberable: @player_or_team, game: @game)
+      @member = GameMember.create(memberable: @player_or_team, game: @game) if  (!(params[:member][:type] == "player" ^ params[:member][:team].present?) || (!params[:member][:type] == "player" && params[:member][:team].present?))
       respond_to do |format|
         format.html {  redirect_to add_players_user_game(current_user, @game), notice: "Player added." }
         format.js

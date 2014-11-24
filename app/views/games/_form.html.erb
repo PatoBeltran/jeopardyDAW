@@ -12,7 +12,7 @@
   <%= f.fields_for :semester do |builder| %>
     <fieldset>
       <%= builder.label :title, "Semester" %><br />
-      <%= builder.text_area :title %><br />
+      <%= builder.text_field :title %><br />
       <%= builder.hidden_field :_destroy %>
     </fieldset>
   <% end %>
