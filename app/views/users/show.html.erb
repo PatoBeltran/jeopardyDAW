@@ -1,0 +1,32 @@
+<% @games.each do |game| %>
+  <div>
+    <div>
+      <%= game.topic.name %> |
+      <%= link_to game.created_at.strftime("%B %d, %Y") , [current_user, game] %>
+    </div>
+    <div>
+      <% game.members.each do |member| %>
+        <%= member.memberable.name %>
+        <div>
+        <% if member.memberable_type == "Team" %>
+          <% member.memberable.players.each do |player| %>
+            <%= player.name %>
+          <% end %>
+        <% end %>
+      </div>
+      <%end %>
+    </div>
+  </div>
+<% end %>
+<hr />
+<%= link_to "Add Game", new_user_game_path(@user) %><br />
+<%= link_to "Add Category", new_category_path %><br />
+<%= link_to "Add Clue", new_clue_path %><br />
+<%= link_to "Add Question", new_question_path %><br />
+<%= link_to "Add Semester", new_semester_path %><br />
+<%= link_to "Add Topic", new_topic_path %><br />
+<h3> Topics Available </h3>
+<% @topics.each do |topic| %>
+  <span><%= topic.name %></span> | <%= link_to "Edit", edit_topic_path(topic) %><br />
+<% end %>
+

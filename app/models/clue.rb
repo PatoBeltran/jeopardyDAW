@@ -13,4 +13,6 @@
 class Clue < ActiveRecord::Base
   belongs_to :category
   has_one :question
+
+  accepts_nested_attributes_for :question, allow_destroy: true
 end

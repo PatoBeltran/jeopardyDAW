@@ -1,6 +1,7 @@
 class UsersController < Devise::RegistrationsController
-  before_filter :authenticate_user!, only: [:change_password, :password_changed, :show]
   skip_before_filter :should_change_password, only: [:change_password, :password_changed]
+  before_action :authenticate_user!, except: [:new, :create]
+  load_and_authorize_resource
 
   def new
     @user = User.new
@@ -36,7 +37,10 @@ class UsersController < Devise::RegistrationsController
   end
 
   def show
-
+    @user = current_user
+    @games = @user.games
+    @reports = nil
+    @topics = Topic.all
   end
 
   private

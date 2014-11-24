@@ -1,0 +1,9 @@
+<h2> New Game </h2>
+<%= form_for [current_user, @game] do |f| %>
+  <%= f.label :topic_id, "Choose a topic" %>
+  <%= f.select(:topic_id, @topics.map{|a| [a.name, a.id]}.unshift(["", ""])) %>
+
+  <%= f.label :semester_id, "Choose a semester" %>
+  <%= f.select(:semester_id, @semesters.map{|a| [a.title, a.id]}.unshift(["", ""])) %>
+  <%= f.submit %>
+<% end %>

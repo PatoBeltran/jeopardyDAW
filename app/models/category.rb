@@ -12,4 +12,6 @@
 class Category < ActiveRecord::Base
   belongs_to :topic
   has_many :clues
+
+  accepts_nested_attributes_for :clues, allow_destroy: true
 end

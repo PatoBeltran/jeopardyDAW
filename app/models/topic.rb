@@ -11,4 +11,6 @@
 class Topic < ActiveRecord::Base
   has_many :categories
   has_many :games
+
+  accepts_nested_attributes_for :categories, allow_destroy: true
 end

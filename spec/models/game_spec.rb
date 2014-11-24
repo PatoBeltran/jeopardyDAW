@@ -2,12 +2,12 @@
 #
 # Table name: games
 #
-#  id         :integer          not null, primary key
-#  topic_id   :integer
-#  semeter_id :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  user_id    :integer
+#  id          :integer          not null, primary key
+#  topic_id    :integer
+#  semester_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  user_id     :integer
 #
 
 require 'rails_helper'

@@ -1,0 +1,10 @@
+<fieldset>
+  <%= f.label :title, "Clue" %>
+  <%= f.text_field :title %>
+  <%= f.label :points, "Points" %>
+  <%= f.text_field :points %>
+  <%= f.fields_for :question do |builder| %>
+    <%= render "question_form", f: builder %>
+  <% end %>
+</fieldset>
+
