@@ -1,0 +1,6 @@
+<%= link_to "Add Clue", new_clue_path %><br />
+<ul>
+  <% @clues.each do |clue| %>
+    <li><div><span><%= clue.title %></span> | <%= link_to "Edit", edit_clue_path(clue) %></div></li>
+  <% end %>
+</ul>

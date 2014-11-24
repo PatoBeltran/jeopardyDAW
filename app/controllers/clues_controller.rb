@@ -31,6 +31,10 @@ class CluesController < ApplicationController
     end
   end
 
+  def index
+    @clues = Clue.all
+  end
+
   private
 
   def clue_params
