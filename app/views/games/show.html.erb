@@ -1,6 +1,29 @@
-<h2> Jeopardy Game </h2>
+<h2> <%= @game.topic.name %> | Jeopardy Game </h2>
 <h4> Date: <%= @game.created_at.strftime("%B %d, %Y") %> </h4>
+<strong><%= link_to "Edit", edit_user_game_path(current_user, @game) %></strong>
 
+<hr />
 <div>
-
+  <div>
+    <% @game.members.each do |member| %>
+      <%= member.memberable.name %>
+      <div>
+      <% if member.memberable_type == "Team" %>
+        <% member.memberable.players.each do |player| %>
+          <%= player.name %>
+        <% end %>
+      <% end %>
+    </div>
+    <%end %>
+  </div>
+  <div>
+    <% @game.topic.categories.each do |category| %>
+      <%= category.name %>
+      <% category.clues.each do |clue| %>
+        <%= clue.title %>
+        <%= clue.points %>
+        <%= clue.question.title %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
