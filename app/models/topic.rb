@@ -9,6 +9,6 @@
 #
 
 class Topic < ActiveRecord::Base
-  has_one :category
+  has_many :categories
   has_many :games
 end

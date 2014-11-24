@@ -2,7 +2,6 @@ module ActsAsGameMember
   def self.included(base)
     base.has_one :game_member, :as => :memberable, :dependent => :destroy, :autosave => true
     base.validate :member_must_be_valid
-    base.alias_method_chain :game_member, :autobuild
     base.extend ClassMethods
     base.define_game_member_accessors
   end
@@ -13,14 +12,6 @@ module ActsAsGameMember
     super
   end
 
-  def game_member_with_autobuild
-    game_member_without_autobuild || build_game_member
-  end
-
-  def game_members_with_autobuild
-    game_members_without_autobuild.present? ? game_members_without_autobuild : (game_members_without_autobuild << GameMember.new)
-  end
-
   def deep_inspect
     "#{self.inspect} -- #{self.game_member.inspect}"
   end
@@ -28,7 +19,7 @@ module ActsAsGameMember
   protected
 
   def member_must_be_valid
-    unless game_member.valid?
+    if game_member && !game_member.valid?
       game_member.errors.each do |attr, message|
         errors.add(attr, message)
       end
