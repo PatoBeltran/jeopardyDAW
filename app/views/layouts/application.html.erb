@@ -20,14 +20,31 @@
   <![endif]-->
 </head>
 <body>
+  <nav class="navigation-bar">
+     <ul class="brand-section">
+       <li class="brand-name">
+        <a href="/" class="menu-trigger" id="trigger">Jeopardy</a>
+       </li>
+       <li class="menu-toggle">
+        <a href="#">Menu</a>
+       </li>
+     </ul>
+     <ul class="pull-right">
+       <li class="divider"></li>
+       <li>
+         <% if user_signed_in? %>
+           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+         <% else %>
+           <%= link_to "Login", new_user_session_path %>
+         <% end %>
+       </li>
+     </ul>
+  </nav>
   <% flash.each do |key, value| %>
     <div class="alert <%= key %>">
       <a href="#" class="close">x</a>
       <%= value %>
     </div>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= link_to "Salir", destroy_user_session_path, method: :delete %>
   <% end %>
   <%= yield %>
 
