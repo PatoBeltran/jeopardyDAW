@@ -1,0 +1,12 @@
+<% unless m.memberable_type == "Player" && m.memberable.has_team_on_game(@game) %>
+  <li><%= m.memberable.name %></li>
+<% end %>
+<% if m.memberable_type == "Team" %>
+  <div>
+    <ul id="js-<%=m.memberable.name.split.join('')%>">
+      <% m.memberable.players.each do |player| %>
+        <li><%= player.name %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

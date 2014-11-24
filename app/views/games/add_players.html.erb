@@ -1,0 +1,24 @@
+<h2>First you need to have players!</h2>
+<ul id="js-members">
+  <% @game.members.each do |member| %>
+    <%= render "member_list_element", m: member %>
+  <% end %>
+</ul>
+<div id="js-new-member">
+  <%= render "new_member_links" %>
+</div>
+
+<%= link_to "Start Playing!", play_user_game_path(current_user, @game) %>
+
+<script>
+  jQuery(function() {
+      $('#js-new-member').on('click', '#js-new-player', function(event) {
+        $("#js-new-member").html("<%= j render 'games/new_player'%>");
+        return event.preventDefault();
+        });
+      $('#js-new-member').on('click', '#js-new-team', function(event) {
+        $("#js-new-member").html("<%= j render(partial: 'games/new_team') %>");
+        return event.preventDefault();
+        });
+      });
+</script>

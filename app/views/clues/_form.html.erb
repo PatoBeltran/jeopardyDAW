@@ -1,7 +1,7 @@
 <%= form_for @clue do |f| %>
-  <% if @category.errors.any? %>
+  <% if @clue.errors.any? %>
     <ul>
-      <% @category.errors.full_messages.each do |msg| %>
+      <% @clue.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
