@@ -1,6 +1,0 @@
-<%= link_to "Add Question", new_question_path %><br />
-<ul>
-  <% @questions.each do |question| %>
-    <li><div><span><%= question.title %></span> | <%= link_to "Edit", edit_question_path(question) %></div></li>
-  <% end %>
-</ul>

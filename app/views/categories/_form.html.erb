@@ -1,4 +1,11 @@
 <%= form_for @category do |f| %>
+  <% if @category.errors.any? %>
+    <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
  <%= f.label :name, "Category" %>
   <%= f.text_field :name %>
   <%= f.label :topic_id, "Topic" %>

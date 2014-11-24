@@ -12,5 +12,8 @@ class Team < ActiveRecord::Base
   has_many :team_players
   has_many :players, through: :team_players
   belongs_to :game
+
+  validate :name, presence: true
+  
   include ActsAsGameMember
 end

@@ -17,7 +17,7 @@ class Game < ActiveRecord::Base
   has_many :reports
   belongs_to :semester
 
-  validates :topic, :semester, presence: true
+  validates :topic, :semester, :user, presence: true
 
   accepts_nested_attributes_for :topic, :semester, allow_destroy: true
 

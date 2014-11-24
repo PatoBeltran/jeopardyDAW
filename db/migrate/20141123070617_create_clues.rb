@@ -4,6 +4,7 @@ class CreateClues < ActiveRecord::Migration
       t.integer :category_id
       t.string :title
       t.integer :points
+      t.string :question
 
       t.timestamps
     end

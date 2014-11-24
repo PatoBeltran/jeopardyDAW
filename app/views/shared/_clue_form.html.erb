@@ -3,8 +3,9 @@
   <%= f.text_field :title %>
   <%= f.label :points, "Points" %>
   <%= f.text_field :points %>
-  <%= f.fields_for :question do |builder| %>
-    <%= render "shared/question_form", f: builder %>
-  <% end %>
+  <%= f.label :question, "Question" %>
+  <%= f.text_field :question %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>
 
