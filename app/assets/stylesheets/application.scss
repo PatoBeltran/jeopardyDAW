@@ -5,7 +5,7 @@
 @import "landing";
 
 .list-limited-size {
-  max-height: 100px;
+  max-height: 110px;
   overflow: auto;
   background-color: #ccc;
   padding: 5px;
@@ -15,10 +15,10 @@
 	border-radius: 10px;
 	margin: 5px;
 	background-color: orange;
-	float: left;
 	text-align: center;
 	padding: 10px;
 }
+
 
 h5, h2, .aboutUs {
 	text-align: center;
@@ -28,8 +28,12 @@ h5, h2, .aboutUs {
 	list-style-type: none;
 }
 
-.field, .actions {
+.field {
 	width: 300px;
+	text-align: center;
+}
+
+.actions {
 	text-align: center;
 }
 
@@ -38,4 +42,9 @@ h5, h2, .aboutUs {
     position:relative;
     left:50%;
     margin-left: -150px;
+}
+
+.btn-row {
+	text-align: center;
+	padding: 15px;
 }

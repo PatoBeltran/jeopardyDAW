@@ -1,7 +1,15 @@
 <%= form_for @question do |f| %>
+<div class="form-section">
+<div class="field">
   <%= f.label :title, "Question" %>
   <%= f.text_field :title %>
+</div>
+<div class="field">
   <%= f.label :clue_id, "Clue" %>
   <%= f.select(:clue_id, @clues.map{|a| [a.title, a.id]}.unshift(["", ""])) %>
+</div>
+<div class="actions">
   <%= f.submit %>
+</div>
+</div>
 <% end %>

@@ -1,14 +1,19 @@
 <%= form_for @topic do |f| %>
-
-<div class="form-section">
+<div class="row">
+  <div class="col-3">
   <%= f.label :name, "Topic" %>
   <%= f.text_area :name %>
+  </div>
+</div>
+
+<div class="row">
   <%= f.fields_for :categories do |builder| %>
   <%= render "shared/category_form", f: builder %>
   <% end %>
-  <div class="actions">
-  	<%= f.submit %>
-  </div>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
 </div>
 
 <% end %>

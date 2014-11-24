@@ -1,16 +1,23 @@
 <%= form_for @category do |f| %>
-
-<div class="form-section">
+<div class="row">
+  <div class="col-3">
   <%= f.label :name, "Category" %>
   <%= f.text_field :name %>
+  </div>
+  <div class="col-3">
   <%= f.label :topic_id, "Topic" %>
   <%= f.select(:topic_id, @topics.map{|a| [a.name, a.id]}.unshift(["", ""])) %>
+  </div>
+</div>
+
+<div class="row">
   <%= f.fields_for :clues do |builder| %>
     <%= render "shared/clue_form", f: builder %>
   <% end %>
-  <div class="actions">
-  	<%= f.submit %>
-  </div>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
 </div>
 
 <% end %>
