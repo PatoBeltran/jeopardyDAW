@@ -1,6 +1,6 @@
 <%= form_for [current_user, @game] do |f| %>
   <%= f.fields_for :topic do |builder| %>
-    <%= render "topic_form", f: builder %>
+    <%= render "shared/topic_form", f: builder %>
   <% end %>
   <%= f.fields_for :semester do |builder| %>
     <fieldset>

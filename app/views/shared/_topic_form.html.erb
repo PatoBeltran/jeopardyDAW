@@ -1,8 +1,8 @@
 <fieldset>
   <%= f.label :name, "Topic" %><br />
-  <%= f.text_area :name %><br />
+  <%= f.text_area :name %>
   <%= f.fields_for :categories do |builder| %>
-    <%= render "category_form", f: builder %>
+    <%= render "shared/category_form", f: builder %>
   <% end %>
 </fieldset>
 

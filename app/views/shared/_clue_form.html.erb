@@ -4,7 +4,7 @@
   <%= f.label :points, "Points" %>
   <%= f.text_field :points %>
   <%= f.fields_for :question do |builder| %>
-    <%= render "question_form", f: builder %>
+    <%= render "shared/question_form", f: builder %>
   <% end %>
 </fieldset>
 

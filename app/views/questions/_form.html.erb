@@ -1,0 +1,7 @@
+<%= form_for @question do |f| %>
+  <%= f.label :title, "Question" %>
+  <%= f.text_field :title %>
+  <%= f.label :clue_id, "Clue" %>
+  <%= f.select(:clue_id, @clues.map{|a| [a.title, a.id]}.unshift(["", ""])) %>
+  <%= f.submit %>
+<% end %>
