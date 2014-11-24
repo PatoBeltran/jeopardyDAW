@@ -71,5 +71,6 @@ gem "unicorn"
 gem "annotate"
 gem "sendgrid"
 gem "devise"
-gem "furatto", git: 'git@github.com:IcaliaLabs/furatto-rails.git'
+#gem "furatto", git: 'git@github.com:IcaliaLabs/furatto-rails.git'
+gem "furatto", git: 'https://github.com/IcaliaLabs/furatto-rails.git'
 gem "cancan"

@@ -7,7 +7,7 @@ GIT
       debugger-linecache (~> 1.2.0)
 
 GIT
-  remote: git@github.com:IcaliaLabs/furatto-rails.git
+  remote: https://github.com/IcaliaLabs/furatto-rails.git
   revision: 383de9bbb5ec89841dffcf572a1f61fe3342df3c
   specs:
     furatto (1.3.7)
