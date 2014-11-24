@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141123071321) do
 
   create_table "games", force: true do |t|
     t.integer  "topic_id"
-    t.integer  "semester_id"
+    t.integer  "semeter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

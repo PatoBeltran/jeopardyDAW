@@ -2,9 +2,49 @@
 
 @import "furatto_overrides";
 
+@import "landing";
 
 .list-limited-size {
-  max-height: 100px;
+  max-height: 110px;
   overflow: auto;
   background-color: #ccc;
+  padding: 5px;
+}
+
+.btn {
+	border-radius: 10px;
+	margin: 5px;
+	background-color: orange;
+	text-align: center;
+	padding: 10px;
+}
+
+
+h5, h2, .aboutUs {
+	text-align: center;
+}
+
+.list {
+	list-style-type: none;
+}
+
+.field {
+	width: 300px;
+	text-align: center;
+}
+
+.actions {
+	text-align: center;
+}
+
+.form-section {
+	width:300px;
+    position:relative;
+    left:50%;
+    margin-left: -150px;
+}
+
+.btn-row {
+	text-align: center;
+	padding: 15px;
 }

@@ -18,68 +18,62 @@
     </div>
   </div>
 <% end %>
-<hr />
-<%= link_to "Add Game", new_user_game_path(@user) %><br />
-<%= link_to "Clues", clues_path %><br />
-<hr />
+<div class="btn-row">
+  <%= link_to "Add Game", new_user_game_path(@user), class: 'btn' %><br />
+  <%= link_to "Clues", clues_path, class: 'btn'  %><br />
+</div>
 <div class="">
   <div class="row">
-    <div class="col-6">
-      <div class="row">
-        <div class="col-6">
-          <h5 class="white">Topics</h5>
-          <ul class="list">
-            <div class="list-limited-size">
-              <% @topics.each do |topic| %>
-                <li><%= topic.name %></span> | <%= link_to "Edit", edit_topic_path(topic) %></li>
-              <% end %>
-            </div>
-              <li><%= link_to "Create new", new_topic_path %></li>
-          </ul>
+    <div class="col-3">
+      <h5 class="white">Topics</h5>
+      <ul class="list">
+        <div class="list-limited-size">
+          <% @topics.each do |topic| %>
+            <li><%= topic.name %></span> | <%= link_to "Edit", edit_topic_path(topic) %></li>
+          <% end %>
         </div>
-        <div class="col-6">
-          <h5 class="white">Categories</h5>
-          <ul class="list">
-            <div class="list-limited-size">
-              <% @categories.each do |category| %>
-                <li><%= category.name %></span> | <%= link_to "Edit", edit_category_path(category) %></li>
-              <% end %>
-            </div>
-            <li><%= link_to "Create new", new_category_path %></li>
-          </ul>
-        </div>
-      </div>
+          <li><%= link_to "Create new", new_topic_path %></li>
+      </ul>
     </div>
-    <div class="col-6">
-      <div class="row">
-        <div class="col-6">
-          <h5 class="white">Semesters</h5>
-          <ul class="list">
-            <div class="list-limited-size">
-              <% @semesters.each do |semester| %>
-                <li><%= semester.title %></span> | <%= link_to "Edit", edit_semester_path(semester) %></li>
-              <% end %>
-            </div>
-            <li><%= link_to "Create new", new_semester_path %></li>
-          </ul>
+    <div class="col-3">
+      <h5 class="white">Categories</h5>
+      <ul class="list">
+        <div class="list-limited-size">
+          <% @categories.each do |category| %>
+            <li><%= category.name %></span> | <%= link_to "Edit", edit_category_path(category) %></li>
+          <% end %>
         </div>
-        <div class="col-6">
-          <h5 class="white">About us</h5>
-          <ul class="list">
-            <li>Patricio Beltran</li>
-            <li>Adrian Lozano</li>
-            <li>Iliana Garcia</li>
-          </ul>
+        <li><%= link_to "Create new", new_category_path %></li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <h5 class="white">Semesters</h5>
+      <ul class="list">
+        <div class="list-limited-size">
+          <% @semesters.each do |semester| %>
+            <li><%= semester.title %></span> | <%= link_to "Edit", edit_semester_path(semester) %></li>
+          <% end %>
         </div>
-      </div>
+        <li><%= link_to "Create new", new_semester_path %></li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <h5 class="white">About us</h5>
+      <ul class="list aboutUs">
+        <li>Patricio Beltran</li>
+        <li>Adrian Lozano</li>
+        <li>Iliana Garcia</li>
+      </ul>
     </div>
   </div>
 </div>
+
 <div class="row">
-  <span class="col-6">Jeopardy</span>
-  <span class="pull-right col-6">
+  <span class="col-4" style="text-align: left;">Jeopardy</span>
+  <span class="col-4" style="text-align: center;">
     ©
     2014
-    Daw.
+    DAW
   </span>
+  <span class="col-4" style="text-align: right;">Team 8</span>
 </div>

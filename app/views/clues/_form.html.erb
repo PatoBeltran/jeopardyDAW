@@ -6,13 +6,23 @@
       <% end %>
     </ul>
   <% end %>
-  <%= f.label :title, "Clue" %>
-  <%= f.text_field :title %>
-  <%= f.label :points, "Points" %>
-  <%= f.text_field :points %>
-  <%= f.label :question, "Question" %>
-  <%= f.text_field :question %>
-  <%= f.label :category_id, "Category" %>
-  <%= f.select(:category_id, @categories.map{|a| [a.name, a.id]}.unshift(["", ""])) %>
-  <%= f.submit %>
+  <div class="form-section">
+    <div class="field">
+      <%= f.label :title, "Clue" %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :points, "Points" %>
+      <%= f.text_field :points %>
+    </div>
+    <div class="field">
+      <%= f.label :question, "Question" %>
+      <%= f.text_field :question %>
+      <%= f.label :category_id, "Category" %>
+      <%= f.select(:category_id, @categories.map{|a| [a.name, a.id]}.unshift(["", ""])) %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
 <% end %>
