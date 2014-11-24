@@ -30,6 +30,6 @@ class SemestersController < ApplicationController
   private
 
   def semester_params
-     params.require(:topic).permit(:title)
+     params.require(:semester).permit(:title)
   end
 end

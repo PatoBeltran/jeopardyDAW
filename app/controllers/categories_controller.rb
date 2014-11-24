@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
   def edit
     @category = Category.find(params[:id])
+    @topics = Topic.all
   end
 
   def update
     @category = Category.find(params[:id])
+    @topics = Topic.all
 
     if @category.update_attributes(category_params)
       redirect_to :root, notice: "The category has been updated."
@@ -15,10 +17,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @topics = Topic.all
   end
 
   def create
-    @category = Category.new(question_params)
+    @category = Category.new(category_params)
+    @topics = Topic.all
 
     if @category.save
       redirect_to root_path, notice: "The category has been created."
@@ -30,6 +34,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :id, clues_attributes: [:title, :points, :_destroy, :id, question_attributes: [:title, :_destroy,  :id]])
+    params.require(:category).permit(:name, :id, :topic_id, clues_attributes: [:title, :points, :_destroy, :id, question_attributes: [:title, :_destroy,  :id]])
   end
 end
