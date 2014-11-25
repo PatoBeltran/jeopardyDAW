@@ -23,12 +23,16 @@
         </table>
       </div>
       <div class="col-3 offset-1">
-        <h3>Teams</h3>
+        <h3>Participants</h3>
         <% @report.game.members.each do |member| %>
         <table>
           <thead>
             <tr>
-              <th>Team <%=member.memberable.name %></th>
+              <% if member.memberable_type == "Team" %>
+                <th>Team <%=member.memberable.name %></th>
+              <% else %>
+                <th><%=member.memberable.name %></th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
