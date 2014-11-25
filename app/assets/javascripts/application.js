@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require furatto
 //= require_tree .
+
+$(function() {
+  return $(".alert").on("click", function(event) {
+    return $(this).hide("slow");
+  });
+});
