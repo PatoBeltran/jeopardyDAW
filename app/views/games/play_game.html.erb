@@ -1,15 +1,69 @@
 <div class="wrapper row">
   <div class="col-12 row">
-    <div class="col-8">Topic: <strong><%= @game.topic.name %></strong></div><div class="col-4">Next: <strong><span id="js-turn" data-members="<%= @turns %>"></span></strong></div>
+    <div class="col-8">Topic: <strong><%= @game.topic.name %></strong></div><div class="col-4">Next: <strong><span id="js-turn" data-members="<%= @turns %>" data-turn=<%= @game.turn %>></span></strong></div>
   </div>
   <div class="col-12 row">
     <% @game.topic.categories.each do |category| %>
       <div class="col-2 row">
         <div class="col-12"><%= category.name %></div>
         <% category.clues.each do |clue| %>
-          <div id="clue-<%= clue.id %>" class="col-12"><%= clue.points %></div>
+          <div id="clue-<%= clue.id %>" onclick='click_clue("<%= category.name %>", "<%= clue.id %>", "<%= clue.points %>", "<%= clue.question %>", "<%= clue.title %>")' class="col-12 <%= "active" if clue.answered_on_game(@game) %>"><%= clue.points %></div>
         <% end %>
       </div>
     <% end %>
+  </div>
+  <%= link_to "End Game", "#", class: "button primary"%>
+</div>
+
+
+<script>
+  jQuery(function() {
+      update_turn();
+      $('#modal-1 .modal-content').on('click', '#js-modal-show-answer', function(event) {
+        $('#modal-1 .modal-content').html(''+
+          '<div id="title">' +
+          $('#js-modal-show-answer').data("clue-question") +
+         '</div>' +
+         '<a data-remote="true" href="/users/<%= current_user.id %>/games/<%= @game.id %>/add_answer?clue_id='+ $('#js-modal-show-answer').data("clue-id") +'&points='+ $('#js-modal-show-answer').data("clue-points") + '" class="button alpha primary">Correct!</a>' +
+          '<a data-remote="true" href="/users/<%= current_user.id %>/games/<%= @game.id %>/add_answer?clue_id='+ $('#js-modal-show-answer').data("clue-id") +'&points=0" class="button alpha danger">Wrong!</a>');
+        return event.preventDefault();
+        });
+      });
+
+  var update_turn = function() {
+    var turn = $("#js-turn").data("turn");
+    var members =  $("#js-turn").data("members");
+    $('#js-turn').html(members[turn % members.length]);
+  }
+
+  var nextTurn = function() {
+    var turn = $("#js-turn").data("turn");
+    $("#js-turn").data('turn', turn + 1);
+    $.ajax({
+      type: "PUT",
+      url: "<%= next_turn_user_game_path(current_user, @game) %>",
+    });
+    update_turn();
+  }
+
+  var click_clue = function(category, id, points, question, title) {
+    if (!$('#clue-' + id).hasClass("active")){
+      $('#modal-1 .modal-header').html(category + " - " + points);
+      $('#modal-1 .modal-content').html('<div id="title"></div>' +
+           '<%= link_to "Show answer", "#", class: "button alpha primary", id: "js-modal-show-answer", data: { clue_points: 0, clue_id: 0, clue_question: ""} %>');
+      $('#modal-1 .modal-content #title').html(title);
+      $('#js-modal-show-answer').attr('data-clue-id', id);
+      $('#js-modal-show-answer').attr('data-clue-question', question);
+      $('#js-modal-show-answer').attr('data-clue-points', points);
+      $('#modal-1').modal('show');
+    }
+  }
+</script>
+
+<!--the modal-->
+<div class="modal" id="modal-1" data-furatto="modal" data-theme="alpha" data-transition="3">
+  <div class="modal-header">
+  </div>
+  <div class="modal-content">
   </div>
 </div>

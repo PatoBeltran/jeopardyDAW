@@ -12,6 +12,8 @@ Rails.application.routes.draw do
           get 'play', to: "games#play_game"
           post 'finish', to: "games#end_game"
           get 'teams' => "games#teams", format: 'json'
+          put 'next_turn', to: "games#next_turn"
+          get 'add_answer', to: "games#add_answer"
         end
       end
       collection do

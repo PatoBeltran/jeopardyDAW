@@ -16,4 +16,8 @@ class Clue < ActiveRecord::Base
   validate :title, :category, :points, presence: true
   validate :points, numericality: true
   has_many :answer
+
+  def answered_on_game(game)
+    true
+  end
 end

@@ -8,6 +8,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  user_id     :integer
+#  turn        :integer          default(0)
 #
 
 require 'rails_helper'

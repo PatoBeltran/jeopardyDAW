@@ -100,6 +100,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def add_answer
+    game = Game.find(params[:id])
+    member = game.members[game.turn % game.members.length]
+    Answer.create(game: game, game_member: member, points: params[:points], clue_id: params[:clue_id])
+    @clue = Clue.find(params[:clue_id])
+  end
+
+  def next_turn
+    @game = Game.find(params[:id])
+    @game.next_turn
+    head :ok
+  end
+
   private
 
   def game_params

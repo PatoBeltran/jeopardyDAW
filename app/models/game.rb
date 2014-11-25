@@ -8,6 +8,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  user_id     :integer
+#  turn        :integer          default(0)
 #
 
 class Game < ActiveRecord::Base
@@ -24,5 +25,9 @@ class Game < ActiveRecord::Base
 
   def members
     self.game_members
+  end
+
+  def next_turn
+    update_attributes(turn: self.turn + 1)
   end
 end

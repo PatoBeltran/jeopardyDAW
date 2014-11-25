@@ -11,7 +11,7 @@
 #  updated_at     :datetime
 #
 
-class Answers < ActiveRecord::Base
+class Answer < ActiveRecord::Base
   belongs_to :game
   belongs_to :game_member
   belongs_to :clue

@@ -12,7 +12,7 @@
 #
 
 FactoryGirl.define do
-  factory :answer, :class => 'Answers' do
+  factory :answer do
     game_id 1
 game_member_id 1
 clue_id 1
