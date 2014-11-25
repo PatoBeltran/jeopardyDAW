@@ -4,6 +4,11 @@
 
 @import "landing";
 
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .list-limited-size {
   height: 200px;
   overflow: auto;

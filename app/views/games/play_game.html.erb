@@ -1,0 +1,15 @@
+<div class="wrapper row">
+  <div class="col-12 row">
+    <div class="col-8">Topic: <strong><%= @game.topic.name %></strong></div><div class="col-4">Next: <strong><span id="js-turn" data-members="<%= @turns %>"></span></strong></div>
+  </div>
+  <div class="col-12 row">
+    <% @game.topic.categories.each do |category| %>
+      <div class="col-2 row">
+        <div class="col-12"><%= category.name %></div>
+        <% category.clues.each do |clue| %>
+          <div id="clue-<%= clue.id %>" class="col-12"><%= clue.points %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

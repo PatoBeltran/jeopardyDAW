@@ -1,6 +1,6 @@
 $('#js-new-member').html("<%= j render 'new_member_links' %>");
-<% if @member.memberable_type == "Player" && @member.memberable.has_team_on_game(@game) %>
-    $('#js-<%= @member.memberable.team_name_for_game(@game) %>').append("<li><%= @member.memberable.name %></li>")
+<% if @player_or_team.is_a?(Player) && @player_or_team.has_team_on_game(@game) %>
+    $('#js-<%= @player_or_team.team_name_for_game(@game) %>').append("<li><%= @player_or_team.name %></li>")
 <% else %>
-    $('#js-members').append("<%= j render 'member_list_element', m: @member.memberable %>")
+    $('#js-members').append("<%= j render 'member_list_element', m: @player_or_team %>")
 <% end %>
