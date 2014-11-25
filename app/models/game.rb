@@ -16,6 +16,7 @@ class Game < ActiveRecord::Base
   belongs_to :topic
   has_many :reports
   belongs_to :semester
+  has_many :answers
 
   validates :topic, :semester, :user, presence: true
 

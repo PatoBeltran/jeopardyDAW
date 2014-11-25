@@ -69,7 +69,7 @@ class GamesController < ApplicationController
 
     if @player_or_team.save
       @teamp.save  if params[:member][:type] == "player" && params[:member][:team].present?
-      @member = GameMember.create(memberable: @player_or_team, game: @game) if  (!(params[:member][:type] == "player" ^ params[:member][:team].present?) || (!params[:member][:type] == "player" && params[:member][:team].present?))
+      @member = GameMember.create(memberable: @player_or_team, game: @game) if ((!(params[:member][:type] == "player")^(params[:member][:team].present?)) || (!params[:member][:type] == "player" && params[:member][:team].present?))
       respond_to do |format|
         format.html {  redirect_to add_players_user_game(current_user, @game), notice: "Player added." }
         format.js
@@ -81,7 +81,7 @@ class GamesController < ApplicationController
 
   def play_game
     @game = Game.find(params[:id])
-    @game.members.map{|e| a.members.destroy(e) if e.memberable_type = "Team" && e.memberable.players.count > 0}
+    @game.members.map{|e| @game.members.destroy(e) if e.memberable_type == "Team" && e.memberable.players.count == 0}
     if @game.members.empty?
       redirect_to @game, notice: "You need to add players to game before playing."
     end

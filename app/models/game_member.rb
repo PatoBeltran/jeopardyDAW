@@ -13,4 +13,5 @@
 class GameMember < ActiveRecord::Base
   belongs_to :memberable, polymorphic: true, inverse_of: :game_member
   belongs_to :game
+  has_many :answers
 end

@@ -6,6 +6,7 @@
 #  category_id :integer
 #  title       :string(255)
 #  points      :integer
+#  question    :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
 #
