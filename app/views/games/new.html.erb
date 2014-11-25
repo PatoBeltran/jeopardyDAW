@@ -1,9 +1,19 @@
 <h2> New Game </h2>
 <%= form_for [current_user, @game] do |f| %>
+<div class="row">
+	<div class="col-3 offset-3">
   <%= f.label :topic_id, "Choose a topic" %>
   <%= f.select(:topic_id, @topics.map{|a| [a.name, a.id]}.unshift(["", ""])) %>
+</div>
 
+<div class="col-3">
   <%= f.label :semester_id, "Choose a semester" %>
   <%= f.select(:semester_id, @semesters.map{|a| [a.title, a.id]}.unshift(["", ""])) %>
-  <%= f.submit %>
+</div>
+</div>
+
+<div class="row">
+<%= f.submit "Create Game", class: 'button danger'%>
+</div>
+
 <% end %>

@@ -20,35 +20,18 @@
 <% end %>
 
 <div class="row">
-  <div class="col-9 btn-row">
-    <%= link_to "Add Game", new_user_game_path(@user), class: 'btn' %>
-    <%= link_to "Clues", clues_path, class: 'btn' %>
+  <div class="col-9">
+    <%= link_to "New Game", new_user_game_path(@user), class: 'button danger' %>
+    <%= link_to "Clues", clues_path, class: 'button lila' %>
   </div>
 </div>
 
 <div class="">
   <div class="row">
-    <div class="col-2">
+    <div class="col-3">
       <h5>Topics</h5>
-      <ul class="list">
-        <div class="list-limited-size">
-          <% @topics.each do |topic| %>
-            <li><%= topic.name %></span> | <%= link_to "Edit", edit_topic_path(topic) %></li>
-          <% end %>
-        </div>
-        <li><div class="btn-row">
-          <%= link_to "Create new", new_topic_path, class: 'new-btn topic-color' %>
-        </div></li>
-      </ul>
-    </div>
-    <div class="col-2">
+      <div class="table-limited-size">
       <table>
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th></th>
-          </tr>
-        </thead>
         <tbody>
           <% @topics.each do |topic| %>
           <tr>
@@ -58,43 +41,71 @@
           <% end %>
         </tbody>
       </table>
-      <div class="btn-row">
-        <%= link_to "Create new", new_topic_path, class: 'new-btn topic-color' %>
+    </div>
+      <div class="row">
+        <%= link_to "Create Topic", new_topic_path, class: 'button primary' %>
       </div>
     </div>
-    <div class="col-2">
-      <h5 class="white">Categories</h5>
-      <ul class="list">
-        <div class="list-limited-size">
+    <div class="col-3">
+      <h5>Categories</h5>
+      <div class="table-limited-size">
+      <table>
+        <tbody>
           <% @categories.each do |category| %>
-            <li><%= category.name %></span> | <%= link_to "Edit", edit_category_path(category) %></li>
+          <tr>
+            <td><%= category.name %></td>
+            <td><%= link_to "Edit", edit_category_path(category) %></td>
+          </tr>
           <% end %>
-        </div>
-        <li><div class="btn-row">
-          <%= link_to "Create new", new_category_path, class: 'new-btn category-color' %>
-        </div></li>
-      </ul>
+        </tbody>
+      </table>
     </div>
-    <div class="col-2">
-      <h5 class="white">Semesters</h5>
-      <ul class="list">
-        <div class="list-limited-size">
+      <div class="row">
+        <%= link_to "Create Category", new_category_path, class: 'button success' %>
+      </div>
+    </div>
+    <div class="col-3">
+      <h5>Semesters</h5>
+      <div class="table-limited-size">
+      <table>
+        <tbody>
           <% @semesters.each do |semester| %>
-            <li><%= semester.title %></span> | <%= link_to "Edit", edit_semester_path(semester) %></li>
+          <tr>
+            <td><%= semester.title %></td>
+            <td><%= link_to "Edit", edit_semester_path(semester) %></td>
+          </tr>
           <% end %>
-        </div>
-        <li><div class="btn-row">
-          <%= link_to "Create new", new_semester_path, class: 'new-btn semester-color' %>
-        </div></li>
-      </ul>
+        </tbody>
+      </table>
     </div>
-    <div class="col-2">
-      <h5 class="white">About us</h5>
-      <ul class="list aboutUs">
-        <li>Patricio Beltran</li>
-        <li>Adrian Lozano</li>
-        <li>Iliana Garcia</li>
-      </ul>
+      <div class="row">
+        <%= link_to "Create Semester", new_semester_path, class: 'button warning' %>
+      </div>
+    </div>
+    <div class="col-3">
+      <h5>About Us</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Patricio Beltrán</td>
+            <td>A01175557</td>
+          </tr>
+          <tr>
+            <td>Adrián Lozano</td>
+            <td>A00000000</td>
+          </tr>
+          <tr>
+            <td>Iliana García</td>
+            <td>A01191428</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

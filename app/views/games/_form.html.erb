@@ -1,20 +1,26 @@
 <%= form_for [current_user, @game] do |f| %>
-  <% if @game.errors.any? %>
-    <ul>
-      <% @game.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<% if @game.errors.any? %>
+<ul>
+  <% @game.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
   <% end %>
-  <%= f.fields_for :topic do |builder| %>
-    <%= render "shared/topic_form", f: builder %>
-  <% end %>
-  <%= f.fields_for :semester do |builder| %>
-    <fieldset>
-      <%= builder.label :title, "Semester" %><br />
-      <%= builder.text_field :title %><br />
+</ul>
+<% end %>
+<%= f.fields_for :topic do |builder| %>
+<%= render "shared/topic_form", f: builder %>
+<% end %>
+<%= f.fields_for :semester do |builder| %>
+<fieldset>
+  <div class="row">
+    <div class="col-4 offset-4">
+      <%= builder.label :title, "Semester" %>
+      <%= builder.text_field :title %>
       <%= builder.hidden_field :_destroy %>
-    </fieldset>
-  <% end %>
-  <%= f.submit %>
+    </div>
+  </div>
+</fieldset>
+<% end %>
+<div class="row">
+  <%= f.submit class: 'button danger' %>
+</div>
 <% end %>

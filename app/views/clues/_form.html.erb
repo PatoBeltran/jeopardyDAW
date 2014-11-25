@@ -21,8 +21,8 @@
       <%= f.label :category_id, "Category" %>
       <%= f.select(:category_id, @categories.map{|a| [a.name, a.id]}.unshift(["", ""])) %>
     </div>
-    <div class="actions">
-      <%= f.submit %>
+    <div class="row">
+      <%= f.submit class: "button" %>
     </div>
   </div>
 <% end %>

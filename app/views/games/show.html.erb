@@ -1,8 +1,10 @@
 <h2> <%= @game.topic.name %> | Jeopardy Game </h2>
 <h4> Date: <%= @game.created_at.strftime("%B %d, %Y") %> </h4>
-<strong><%= link_to "Edit", edit_user_game_path(current_user, @game) %></strong>
 
-<h3><%= link_to "Play!", add_players_user_game_path %></h3>
+<div class="row">
+  <%= link_to "Edit", edit_user_game_path(current_user, @game), class: 'button warning' %>
+  <%= link_to "Play!", add_players_user_game_path, class: 'button' %>
+</div>
 <hr />
 <div>
   <div>
@@ -17,13 +19,26 @@
     </div>
     <%end %>
   </div>
-  <div>
+  <div class="row">
+    <div class="col-4 offset-4">
     <% @game.topic.categories.each do |category| %>
-      <%= category.name %>
-      <% category.clues.each do |clue| %>
-        <%= clue.title %>
-        <%= clue.points %>
-      <% end %>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:90%;"><%= category.name %></th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% category.clues.each do |clue| %>
+        <tr>
+          <td><%= clue.title %></td>
+          <td><%= clue.points %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
+  </div>
   </div>
 </div>

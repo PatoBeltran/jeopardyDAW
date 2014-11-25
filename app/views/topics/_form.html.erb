@@ -7,9 +7,9 @@
     </ul>
   <% end %>
 <div class="row">
-  <div class="col-3">
-  <%= f.label :name, "Topic" %>
-  <%= f.text_field :name %>
+  <div class="col-4 offset-4">
+    <%= f.label :name, "Topic" %>
+    <%= f.text_field :name %>
   </div>
 </div>
 
@@ -20,8 +20,8 @@
   <%= link_to_add_fields "Add Category", f, :categories %>
 </div>
 
-<div class="field">
-  <%= f.submit class: 'btn topic-color'%>
+<div class="row">
+  <%= f.submit class: 'button primary'%>
 </div>
 
 <% end %>

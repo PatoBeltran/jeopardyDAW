@@ -14,36 +14,14 @@
   margin-right: 10px;
 }
 
-.btn {
-	border-radius: 8px;
-	margin: 5px;
-	background-color: #006699 ;
-	color: white;
-	text-align: center;
-	padding: 5px;
-	font-size: 90%;
+.table-limited-size {
+	height: 234px;
+	overflow: auto;
+	margin: 10px;
 }
 
-.new-btn {
-	color: white;
-	text-align: center;
-	padding: 5px;
-	width: 150px;
-}
 
-.topic-color {
-	background-color: #FF8533;
-}
-
-.category-color {
-	background-color: #70B8FF;
-}
-
-.semester-color {
-	background-color: #5CD65C;
-}
-
-h5, h2, .aboutUs {
+h5, h2, h4, .aboutUs {
 	text-align: center;
 }
 
@@ -56,13 +34,6 @@ h5, h2, .aboutUs {
 	text-align: center;
 }
 
-.actions {
-	text-align: center;
-	border-radius: 10px;
-	padding: 8px;
-	font-size: 97%;
-}
-
 .form-section {
 	width:300px;
     position:relative;
@@ -70,7 +41,6 @@ h5, h2, .aboutUs {
     margin-left: -150px;
 }
 
-.btn-row {
+.row {
 	text-align: center;
-	padding: 15px;
 }
