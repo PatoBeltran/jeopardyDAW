@@ -14,7 +14,7 @@
     <% end %>
   </div>
   <div class="col-8 row">
-  <%= link_to "End Game", "#", class: "button primary"%>
+  <%= link_to "End Game", finish_user_game_path(current_user, @game), class: "button primary", method: :post %>
 </div>
 </div>
 

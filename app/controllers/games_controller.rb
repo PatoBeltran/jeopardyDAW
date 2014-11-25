@@ -12,6 +12,9 @@ class GamesController < ApplicationController
     @semesters = Semester.all
     @players = Player.all
     @teams = Team.all
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
   end
 
   def update
@@ -20,6 +23,9 @@ class GamesController < ApplicationController
     @semesters = Semester.all
     @players = Player.all
     @teams = Team.all
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
     if @game.update_attributes(game_params)
       redirect_to [current_user, @game], notice: "Game updated successfully"
     else
@@ -56,10 +62,16 @@ class GamesController < ApplicationController
 
   def add_players
     @game = Game.find(params[:id])
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
   end
 
   def added_player
     @game = Game.find(params[:id])
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
     if params[:member][:type] == "team"
       @player_or_team = Team.new(name: params[:member][:name])
     else
@@ -81,16 +93,27 @@ class GamesController < ApplicationController
 
   def play_game
     @game = Game.find(params[:id])
+
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
+
     @game.members.map{|e| @game.members.destroy(e) if e.memberable_type == "Team" && e.memberable.players.count == 0}
     if @game.members.empty?
-      redirect_to @game, notice: "You need to add players to game before playing."
+      redirect_to [current_user, @game], notice: "This game has already been played"
     else
       @turns = @game.members.map{|a| a.memberable.name}
     end
   end
 
   def end_game
-
+    @game = Game.find(params[:id])
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    else
+      Report.create(game: @game)
+      redirect_to [current_user, @game], notice: "Game finished."
+    end
   end
 
   def teams
@@ -102,6 +125,9 @@ class GamesController < ApplicationController
 
   def add_answer
     game = Game.find(params[:id])
+    if game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
     member = game.members[game.turn % game.members.length]
     Answer.create(game: game, game_member: member, points: params[:points], clue_id: params[:clue_id])
     @clue = Clue.find(params[:clue_id])
@@ -109,6 +135,9 @@ class GamesController < ApplicationController
 
   def next_turn
     @game = Game.find(params[:id])
+    if @game.report.present?
+      redirect_to [current_user, @game], notice: "This game has already been played"
+    end
     @game.next_turn
     head :ok
   end
