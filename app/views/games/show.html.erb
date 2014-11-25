@@ -2,8 +2,12 @@
 <h4> Date: <%= @game.created_at.strftime("%B %d, %Y") %> </h4>
 
 <div class="row">
-  <%= link_to "Edit", edit_user_game_path(current_user, @game), class: 'button warning' %>
-  <%= link_to "Play!", add_players_user_game_path, class: 'button' %>
+  <% if @game.report.present? %>
+    <%= link_to "Report", "#", class: 'button' %>
+  <% else %>
+    <%= link_to "Edit", edit_user_game_path(current_user, @game), class: 'button warning' %>
+    <%= link_to "Play!", add_players_user_game_path, class: 'button' %>
+  <% end %>
 </div>
 <hr />
 <div>

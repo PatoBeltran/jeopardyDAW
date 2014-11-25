@@ -15,7 +15,7 @@ class Game < ActiveRecord::Base
   belongs_to :user
   has_many :game_members
   belongs_to :topic
-  has_many :reports
+  has_one :report
   belongs_to :semester
   has_many :answers
 
