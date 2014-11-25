@@ -1,23 +1,29 @@
+<div class="row">
 <% @games.each do |game| %>
-  <div>
+  <div class="col-3">
     <div>
       <%= game.topic.name %> |
       <%= link_to game.created_at.strftime("%B %d, %Y") , [current_user, game] %>
     </div>
-    <div>
+    <div class="row">
       <% game.members.each do |member| %>
-        <%= member.memberable.name %>
+      <div class="col-6">
+        <strong><%= member.memberable.name %></strong>
         <div>
         <% if member.memberable_type == "Team" %>
           <% member.memberable.players.each do |player| %>
-            <%= player.name %>
+            <%= player.name %><br>
           <% end %>
+        </div>
         <% end %>
       </div>
       <%end %>
     </div>
   </div>
 <% end %>
+</div>
+
+<hr>
 
 <div class="row">
   <div class="col-9">
@@ -109,6 +115,8 @@
     </div>
   </div>
 </div>
+
+<hr>
 
 <div class="row">
   <span class="col-4" style="text-align: left;">Jeopardy</span>
