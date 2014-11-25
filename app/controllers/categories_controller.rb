@@ -34,6 +34,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :id, :topic_id, clues_attributes: [:title, :points, :_destroy, :id, question_attributes: [:title, :_destroy,  :id]])
+    params.require(:category).permit(:name, :id, :topic_id, clues_attributes: [:title, :points, :_destroy, :id, :question])
   end
 end

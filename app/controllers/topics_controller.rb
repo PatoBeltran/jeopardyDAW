@@ -30,6 +30,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name, :id, categories_attributes: [:name, :_destroy, :id, clues_attributes: [:title, :points, :_destroy, :id, question_attributes: [:title, :_destroy,  :id]]])
+    params.require(:topic).permit(:name, :id, categories_attributes: [:name, :_destroy, :id, clues_attributes: [:title, :points, :_destroy, :id, :question]])
   end
 end
