@@ -1,4 +1,6 @@
 <h5>New Player</h5>
+<div class="form-section">
+  <div class="field">
 <%= form_tag added_player_user_game_path(current_user, @game), remote: true do %>
   <%= hidden_field_tag "member[type]", "player" %>
   <%= label_tag "member[name]", "Name" %>
@@ -17,5 +19,9 @@
       });
     });
   </script>
-  <%= submit_tag "Add" %>
+</div>
+<div class="field">
+  <%= submit_tag "Add", class: 'button primary' %>
+  <div class="field">
 <% end %>
+</div>
