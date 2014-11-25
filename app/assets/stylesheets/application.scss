@@ -9,6 +9,10 @@
   margin: 0 auto;
 }
 
+.active {
+  background-color: #ccc;
+}
+
 .list-limited-size {
   height: 200px;
   overflow: auto;

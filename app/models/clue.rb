@@ -18,6 +18,6 @@ class Clue < ActiveRecord::Base
   has_many :answer
 
   def answered_on_game(game)
-    true
+    Answer.where(clue:self, game:game).count > 0
   end
 end
