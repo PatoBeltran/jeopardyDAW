@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <h2>Reports for each semester</h2>
+  <% @semesters.each do |semester| %>
+    <h5><%= semester.title %></h5>
+    <hr />
+    <% semester.games.each do |game| %>
+      <%= link_to "#{game.topic.name} | #{game.created_at.strftime("%B %d, %Y")}", game.report %><br />
+    <% end %>
+  <% end %>
+</div>
