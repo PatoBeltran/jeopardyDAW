@@ -1,6 +1,7 @@
 <div class="wrapper">
-  <h1>Report for <%= @report.game.created_at.strftime("%B %d, %Y") %></h1>
+  <h1 class="wrapper" style="text-align: center">Report for <%= @report.game.created_at.strftime("%B %d, %Y") %></h1>
   <h2><%= @report.game.topic.name %> | Jeopardy Game</h2>
+  <h3 class="wrapper" style="text-align: center"><%= @report.game.semester.title %></h2>
   <div class="wrapper row">
     <div class="col-6 row">
       <h3 class="col-12">Results</h3>
