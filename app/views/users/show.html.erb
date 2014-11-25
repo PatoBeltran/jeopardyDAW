@@ -1,26 +1,22 @@
-<div class="row">
-<% @games.each do |game| %>
-  <div class="col-3">
-    <div>
-      <%= game.topic.name %> |
-      <%= link_to game.created_at.strftime("%B %d, %Y") , [current_user, game] %>
-    </div>
-    <div class="row">
-      <% game.members.each do |member| %>
-      <div class="col-6">
-        <strong><%= member.memberable.name %></strong>
-        <div>
-        <% if member.memberable_type == "Team" %>
-          <% member.memberable.players.each do |player| %>
-            <%= player.name %><br>
-          <% end %>
-        </div>
-        <% end %>
+<div class="wrapper row">
+<div class="col-12 row">
+  <% @games.each do |game| %>
+    <div class="col-6">
+      <%= game.topic.name %> | <%= link_to game.created_at.strftime("%B %d, %Y") , [current_user, game] %>
+      <div class="row">
+        <% game.members.each do |member| %>
+          <div class="col-6">
+            <strong><%= member.memberable.name %></strong><br />
+            <% if member.memberable_type == "Team" %>
+              <% member.memberable.players.each do |player| %>
+                <%= player.name %><br />
+              <% end %>
+            <% end %>
+          </div>
+        <%end %>
       </div>
-      <%end %>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
 
 <hr>
@@ -126,4 +122,5 @@
     DAW
   </span>
   <span class="col-4" style="text-align: right;">Team 8</span>
+</div>
 </div>

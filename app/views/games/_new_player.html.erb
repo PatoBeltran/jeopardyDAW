@@ -1,27 +1,27 @@
 <h5>New Player</h5>
 <div class="form-section">
-  <div class="field">
-<%= form_tag added_player_user_game_path(current_user, @game), remote: true do %>
-  <%= hidden_field_tag "member[type]", "player" %>
-  <%= label_tag "member[name]", "Name" %>
-  <%= text_field_tag "member[name]" %>
-  <%= label_tag "member[team]", "Team" %>
-  <%= select_tag("member[team]", "", id: "js-teams-select") %>
-  <script>
-    $.getJSON("<%= teams_user_game_path(current_user, @game) %>", function(data) {
-      $("#js-teams-select option").remove(); // Remove all <option> child tags.
-      $.each(data, function(index, item) { // Iterates through a collection
-        $("#js-teams-select ").append( // Append an object to the inside of the select box
-            $("<option></option>") // Yes you can do this.
-                .text(item[0])
-                .val(item[1])
-        );
-      });
-    });
-  </script>
-</div>
-<div class="field">
-  <%= submit_tag "Add", class: 'button primary' %>
-  <div class="field">
-<% end %>
+  <%= form_tag added_player_user_game_path(current_user, @game), remote: true do %>
+    <div class="field">
+      <%= hidden_field_tag "member[type]", "player" %>
+      <%= label_tag "member[name]", "Name" %>
+      <%= text_field_tag "member[name]" %>
+      <%= label_tag "member[team]", "Team" %>
+      <%= select_tag("member[team]", "", id: "js-teams-select") %>
+      <script>
+        $.getJSON("<%= teams_user_game_path(current_user, @game) %>", function(data) {
+          $("#js-teams-select option").remove(); // Remove all <option> child tags.
+          $.each(data, function(index, item) { // Iterates through a collection
+            $("#js-teams-select ").append( // Append an object to the inside of the select box
+                $("<option></option>") // Yes you can do this.
+                    .text(item[0])
+                    .val(item[1])
+            );
+          });
+        });
+      </script>
+    </div>
+    <div class="field">
+      <%= submit_tag "Add", class: 'button primary' %>
+    </div>
+  <% end %>
 </div>
