@@ -1,12 +1,24 @@
-<div class="wrapper">
-  <h2>Reports for each semester</h2>
-  <% @semesters.each do |semester| %>
-    <h5><%= semester.title %></h5>
-    <hr />
-    <% semester.games.each do |game| %>
-      <% if game.report.present? && game.user == current_user %>
-        <%= link_to "#{game.topic.name} | #{game.created_at.strftime("%B %d, %Y")}", game.report  %><br />
-      <% end %>
+<div class="row">
+  <div class="col-4 offset-4">
+    <h2>Reports for each semester</h2>
+    <% @semesters.each do |semester| %>
+    <table style="border: none;">
+      <thead>
+        <tr>
+          <th style="text-align:center;"><%= semester.title %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% semester.games.each do |game| %>
+        <% if game.report.present? && game.user == current_user %>
+        <tr>
+          <td style="text-align:center;"><%= link_to "#{game.topic.name} - #{game.created_at.strftime("%B %d, %Y")}", game.report  %></td>
+        </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <br><br><br>
     <% end %>
-  <% end %>
+  </div>
 </div>

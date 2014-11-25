@@ -2,48 +2,46 @@
   <h1 class="wrapper" style="text-align: center">Report for <%= @report.game.created_at.strftime("%B %d, %Y") %></h1>
   <h2><%= @report.game.topic.name %> | Jeopardy Game</h2>
   <h3 class="wrapper" style="text-align: center"><%= @report.game.semester.title %></h2>
-  <div class="wrapper row">
-    <div class="col-6 row">
-      <h3 class="col-12">Results</h3>
-      <table>
-        <thead>
-          <tr>
-            <th style="width:90%;">Player</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @report.game.members.each do |member| %>
+    <div class="row">
+      <div class="col-4 offset-2">
+        <h3>Results</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:90%;">Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @report.game.members.each do |member| %>
             <tr>
               <td><%= member.memberable.name %></td>
               <td><%= @answers.where(game_member: member).sum(:points) %></td>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-6 row">
-      <h3 class="col-12">Teams</h3>
-      <table>
-        <thead>
-          <tr>
-            <th style="width:90%;">Team name</th>
-            <th>Team Member</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @report.game.members.each do |member| %>
-            <% if member.memberable_type == "Team" %>
-              <% member.memberable.players.each do |player| %>
-                <tr>
-                  <td><%= member.memberable.name %></td>
-                  <td><%= player.name %></td>
-                </tr>
-              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-3 offset-1">
+        <h3>Teams</h3>
+        <% @report.game.members.each do |member| %>
+        <table>
+          <thead>
+            <tr>
+              <th>Team <%=member.memberable.name %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if member.memberable_type == "Team" %>
+            <% member.memberable.players.each do |player| %>
+            <tr>
+              <td><%= player.name %></td>
+            </tr>
+            <% end %>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
