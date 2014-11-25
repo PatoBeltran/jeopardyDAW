@@ -3,7 +3,7 @@
 
 <div class="row">
   <% if @game.report.present? %>
-    <%= link_to "Report", "#", class: 'button' %>
+    <%= link_to "Report", @game.report, class: 'button' %>
   <% else %>
     <%= link_to "Edit", edit_user_game_path(current_user, @game), class: 'button warning' %>
     <%= link_to "Play!", add_players_user_game_path, class: 'button' %>

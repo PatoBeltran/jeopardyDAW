@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reports/show'
+
   root "pages#landing"
 
   devise_for :users, controllers: { registrations: "users"}
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   resources :clues
   resources :semesters
   resources :topics
+  resources :reports
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
