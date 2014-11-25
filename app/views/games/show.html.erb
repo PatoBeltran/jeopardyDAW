@@ -10,39 +10,51 @@
   <% end %>
 </div>
 <hr />
-<div>
-  <div>
+
+  
+<div class="row">
+  <div class="col-2 offset-2">
+    <h5>Teams</h5>
     <% @game.members.each do |member| %>
-      <%= member.memberable.name %>
-      <div>
-      <% if member.memberable_type == "Team" %>
-        <% member.memberable.players.each do |player| %>
-          <%= player.name %>
-        <% end %>
-      <% end %>
-    </div>
-    <%end %>
-  </div>
-  <div class="row">
-    <div class="col-4 offset-4">
-    <% @game.topic.categories.each do |category| %>
     <table>
       <thead>
         <tr>
-          <th style="width:90%;"><%= category.name %></th>
-          <th>Points</th>
+          <th><%= member.memberable.name %></th>
         </tr>
       </thead>
       <tbody>
-        <% category.clues.each do |clue| %>
+        <% if member.memberable_type == "Team" %>
+        <% member.memberable.players.each do |player| %>
         <tr>
-          <td><%= clue.title %></td>
-          <td><%= clue.points %></td>
+          <td>
+            <%= player.name %>
+          </td>
         </tr>
         <% end %>
+            <% end %>
       </tbody>
     </table>
     <% end %>
   </div>
-  </div>
+  <div class="col-4 offset-2">
+    <h5>Clues</h5>
+  <% @game.topic.categories.each do |category| %>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:90%;"><%= category.name %></th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% category.clues.each do |clue| %>
+      <tr>
+        <td><%= clue.title %></td>
+        <td><%= clue.points %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>
 </div>

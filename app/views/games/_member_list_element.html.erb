@@ -1,5 +1,6 @@
+<div style="padding:5px 15px;">
 <% unless m.memberable_type == "Player" && m.memberable.has_team_on_game(@game) %>
-  <li><%= m.memberable.name %></li>
+  <li><strong><%= m.memberable.name %></strong></li>
 <% end %>
 <% if m.memberable_type == "Team" %>
   <div>
@@ -10,3 +11,4 @@
     </ul>
   </div>
 <% end %>
+</div>
