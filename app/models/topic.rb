@@ -12,7 +12,7 @@ class Topic < ActiveRecord::Base
   has_many :categories
   has_many :games
 
-  validate :name, presence: true
+  validates :name, presence: true
 
   accepts_nested_attributes_for :categories, allow_destroy: true
 end

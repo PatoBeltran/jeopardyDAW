@@ -13,7 +13,7 @@ class Team < ActiveRecord::Base
   has_many :players, through: :team_players
   belongs_to :game
 
-  validate :name, presence: true
+  validates :name, presence: true
   
   include ActsAsGameMember
 end

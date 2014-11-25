@@ -11,5 +11,5 @@
 class Report < ActiveRecord::Base
   belongs_to :game
 
-  validate :game, presence: true
+  validates :game, presence: true
 end

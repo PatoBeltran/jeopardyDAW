@@ -13,8 +13,8 @@
 
 class Clue < ActiveRecord::Base
   belongs_to :category
-  validate :title, :category, :points, presence: true
-  validate :points, numericality: true
+  validates :title, presence: true, allow_blank: false
+  validates :points, presence: true, allow_blank: false
   has_many :answer
 
   def answered_on_game(game)

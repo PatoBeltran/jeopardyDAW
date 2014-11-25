@@ -13,7 +13,7 @@ class Category < ActiveRecord::Base
   belongs_to :topic
   has_many :clues
 
-  validate :name, :topic, presence: true
+  validates :name, :topic, presence: true
 
   accepts_nested_attributes_for :clues, allow_destroy: true
 end

@@ -16,6 +16,6 @@ class Answer < ActiveRecord::Base
   belongs_to :game_member
   belongs_to :clue
 
-  validate :game, :game_member, :clue, :points, presence: true
-  validate :points, numericality: true
+  validates :game, :game_member, :clue, :points, presence: true
+  validates :points, numericality: true
 end

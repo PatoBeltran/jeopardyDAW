@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable,
     :lockable
 
-  validate :name, presence: true
+  validates :name, presence: true
 
   has_many :games
 
