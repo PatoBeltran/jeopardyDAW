@@ -145,6 +145,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:topic_id, :semester_id, topic_attributes: [:name, :_destroy, :id, categories_attributes: [:name, :_destroy, :id, clues_attributes: [:title, :points, :_destroy, :id, question_attributes: [:title, :_destroy,  :id]]]], semester_attributes: [:title, :_destroy, :id])
+    params.require(:game).permit(:topic_id, :semester_id, topic_attributes: [:name, :_destroy, :id, categories_attributes: [:name, :_destroy, :id, clues_attributes: [:title, :points, :_destroy, :id, :question]]], semester_attributes: [:title, :_destroy, :id])
   end
 end
