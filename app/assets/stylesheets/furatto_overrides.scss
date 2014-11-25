@@ -25,7 +25,7 @@ $base-font-family: 'Raleway', 'Helvetica Neue';
 /*$button-display: inline-block !default;*/
 /*$button-border-width: 1px !default;*/
 /*$button-border-style: solid !default;*/
-/*$button-default-background-color: #2E323E !default;*/
+$button-default-background-color: #9999ff !default;
 /*Buttons general styles*/
 /*$button-font-family: $base-font-family !default;*/
 /*$button-font-color: #FFF !default;*/
@@ -47,6 +47,10 @@ $base-font-family: 'Raleway', 'Helvetica Neue';
 /*Icons*/
 /*$button-icon-separation: 5px !default;*/
 /*Background variations*/
+$button-primary-background: #3498db !default;
+$button-success-background: #2ecc71 !default;
+$button-danger-background: #e74c3c !default;
+$button-warning-background: #e67e22 !default;
 /*$button-primary-background: #3498db !default;*/
 /*$button-success-background: #2ecc71 !default;*/
 /*$button-danger-background: #e74c3c !default;*/

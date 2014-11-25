@@ -1,7 +1,13 @@
 <h5>New Team</h5>
-<%= form_tag added_player_user_game_path(current_user, @game), remote: true do %>
+<div class="form-section">
+  <div class="field">
+  <%= form_tag added_player_user_game_path(current_user, @game), remote: true do %>
   <%= hidden_field_tag "member[type]", "team" %>
   <%= label_tag "member[name]", "Name" %>
   <%= text_field_tag "member[name]" %>
-  <%= submit_tag "Add" %>
+</div>
+  <div class="field">
+  <%= submit_tag "Add", class: 'button' %>
+</div>
 <% end %>
+</div>

@@ -7,15 +7,13 @@
     </ul>
   <% end %>
   <div class="row">
-    <div class="col-3">
+    <div class="col-4 offset-4">
       <%= f.label :title, "Semester" %>
       <%= f.text_area :title %>
     </div>
   </div>
 
 <div class="row">
-  <div class="field">
-    <%= f.submit class: 'btn semester-color'%>
-  </div>
+    <%= f.submit class: 'button warning'%>
 </div>
 <% end %>

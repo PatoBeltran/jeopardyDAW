@@ -13,12 +13,12 @@
     <%= f.text_field :name, autofocus: true, placeholder: 'name' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up", class: 'actions'  %>
+  <div class="field">
+    <%= f.submit "Sign up", class: 'button primary'  %>
   </div>
 </div>
 <% end %>
 
-<div class="btn-row">
-<%= render "devise/shared/links" %>
+<div class="row">
+  <%= render "devise/shared/links" %>
 </div>

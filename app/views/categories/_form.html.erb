@@ -7,7 +7,7 @@
     </ul>
   <% end %>
   <div class="row">
-    <div class="col-3">
+    <div class="col-3 offset-3">
     <%= f.label :name, "Category" %>
     <%= f.text_field :name %>
     </div>
@@ -21,9 +21,10 @@
     <%= f.fields_for :clues do |builder| %>
       <%= render "shared/clue_form", f: builder %>
     <% end %>
+    <%= link_to_add_fields "Add Clue", f, :clues %>
   </div>
 
-<div class="field">
-  <%= f.submit class: 'btn category-color'%>
+<div class="row">
+  <%= f.submit class: 'button success'%>
 </div>
 <% end %>
